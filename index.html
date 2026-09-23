@@ -69,15 +69,15 @@
     .btn-main{width:100%;padding:15px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;font-family:'Kanit',sans-serif;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(255,111,60,.35);transition:transform .15s,box-shadow .15s;}
     .btn-main:active{transform:scale(.97)}
 
-    /* ─── TIER TOGGLE (kecil seperti kartu topping) ─── */
-    .tier-toggle{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
-    .tier-btn{background:var(--cream);border:1.5px solid var(--border);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:var(--ink2);transition:all .2s;user-select:none;}
+    /* ─── TIER TOGGLE (kecil seperti kartu topping, selalu center) ─── */
+    .tier-toggle{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:12px}
+    .tier-btn{flex:0 0 calc((100% - 8px)/2);background:var(--cream);border:1.5px solid var(--border);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:var(--ink2);transition:all .2s;user-select:none;}
     .tier-btn:active{transform:scale(.92)}
     .tier-btn.sel{border-color:var(--orange);background:#FFF7E8;color:var(--orange);}
 
-    /* ─── MENU GRID (kecil seperti topping) ─── */
-    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .mc{background:var(--cream);border:1.5px solid var(--parchment);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;position:relative;transition:all .2s;user-select:none;display:flex;flex-direction:column;align-items:center;gap:2px;}
+    /* ─── MENU GRID (kecil seperti topping, selalu center) ─── */
+    .menu-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .mc{flex:0 0 calc((100% - 16px)/3);background:var(--cream);border:1.5px solid var(--parchment);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;position:relative;transition:all .2s;user-select:none;display:flex;flex-direction:column;align-items:center;gap:2px;}
     .mc:active{transform:scale(.92)}
     .mc.hit{border-color:var(--red);background:linear-gradient(135deg,#FFF2EA,#FFE3D0);box-shadow:0 2px 12px rgba(255,111,60,.18);}
     .mc-em{font-size:20px}
@@ -86,9 +86,9 @@
     .mc-badge{font-size:8px;background:var(--gold);color:var(--ink2);padding:1px 5px;border-radius:8px;font-weight:800;}
     .qb{position:absolute;top:-8px;right:-8px;background:var(--red);color:#fff;border-radius:50%;width:20px;height:20px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(255,111,60,.4);z-index:2;}
 
-    /* ─── TOPPING GRID ─── */
-    .top-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .tp{background:var(--cream);border:1.5px solid var(--border);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;position:relative;transition:all .2s;user-select:none;}
+    /* ─── TOPPING GRID (selalu center) ─── */
+    .top-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .tp{flex:0 0 calc((100% - 16px)/3);background:var(--cream);border:1.5px solid var(--border);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;position:relative;transition:all .2s;user-select:none;}
     .tp:active{transform:scale(.92)}
     .tp.hit{border-color:var(--orange);background:#FFF7E8;}
     .tp-em{font-size:20px;display:block;margin-bottom:2px}
@@ -96,8 +96,8 @@
     .tp-price{font-size:10px;color:var(--ink3)}
     .tp .qb{width:18px;height:18px;font-size:9px;background:var(--orange);}
 
-    /* ─── SAUCE GRID ─── */
-    .sauce-grid{display:flex;flex-wrap:wrap;gap:8px;}
+    /* ─── SAUCE GRID (selalu center) ─── */
+    .sauce-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
     .sc{border:1.5px solid var(--border);border-radius:10px;padding:8px 12px;cursor:pointer;font-size:12px;font-weight:800;color:var(--ink3);background:var(--cream);transition:all .15s;user-select:none;display:flex;align-items:center;gap:5px;}
     .sc:active{transform:scale(.95)}
     .sc.hit{border-color:var(--red);background:var(--red-light);color:var(--red);}
@@ -658,8 +658,11 @@ const STOK_AWAL = [
   { n:'Mangga', unit:'gr', qty:3000 },{ n:'Alpukat', unit:'gr', qty:2500 },
   { n:'Strawberry', unit:'gr', qty:1500 },{ n:'Melon', unit:'gr', qty:2000 },
   { n:'Semangka', unit:'gr', qty:2000 },{ n:'Naga (Dragon Fruit)', unit:'gr', qty:1500 },
-  { n:'Nanas', unit:'gr', qty:1500 },{ n:'Jeruk', unit:'gr', qty:1500 },
-  { n:'Susu Kental Manis', unit:'ml', qty:1000 },{ n:'Es Batu', unit:'kg', qty:5 },
+  { n:'Nanas', unit:'gr', qty:1500 },{ n:'Sunkist', unit:'gr', qty:1500 },
+  { n:'Sirsak', unit:'gr', qty:1500 },{ n:'Jambu', unit:'gr', qty:1500 },
+  { n:'Pisang', unit:'gr', qty:1500 },{ n:'Anggur', unit:'gr', qty:1500 },
+  { n:'Apel Fuji', unit:'gr', qty:1500 },{ n:'Kiwi', unit:'gr', qty:1500 },
+  { n:'Blueberry', unit:'gr', qty:1500 },
 ];
 
 let cP = {}, cT = {}, cS = {};
